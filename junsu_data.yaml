@@ -1,0 +1,12 @@
+names:
+- Axe
+- Bat
+- Gun
+- Hammer
+- Knife
+- Laptop
+- Saw
+- Scissors
+nc: 8
+train: F:\JUNSU1\yolov5\train.txt
+val: F:\JUNSU1\yolov5\val.txt
