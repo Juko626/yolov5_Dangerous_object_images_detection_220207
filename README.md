@@ -1,78 +1,86 @@
-# 프로젝트명
-> 간략한 프로젝트 소개 문구를 작성합니다.
+# 휴먼에러 감소를 위한 사물 엑스레이 자동 인식 프로젝트 
+![Generic badge](https://img.shields.io/badge/Yolo-v5-blue.svg)
+![Generic badge](https://img.shields.io/badge/FastAPI-0.7.0-red.svg)
+![Generic badge](https://img.shields.io/badge/Python-3.7.12-green.svg)
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
+## 프로젝트 설명
 
-한 두 문단으로 프로젝트 소개 글을 작성합니다.
+휴대 수화물 검색 분야의 휴먼 에러를 줄이기 위해 엑스레이 위해물품 데이터를 이용하여 이 물품이 위해물품인지 아닌지를 판별한 후 이미지를 출력 후 Clova Voice를 이용하여 음성 출력을 하는 프로젝트를 진행.
 
+<br>
+
+![image](https://user-images.githubusercontent.com/98979901/156497098-3165d082-6255-4a20-9d0d-6b2070144590.png)
+![image](https://user-images.githubusercontent.com/98979901/156497414-5ff5bc9b-7c00-440c-9745-9c4c8e9a7af5.png)
+<br>
+<br>
+
+## 프로젝트 진행 과정
+  1. AI hub의 위해물품 엑스레이 데이터 7000장을 라벨링(Roboflow 이용)
+  2. 라벨링된 위해물품을 YOLOv5 모델을 이용하여 객체를 인식하고 이미지를 출력함.(150 epochs)
+  3. 결과 값을 MP3 파일로 저장해주는 '사물 엑스레이 자동인식 시스템' 제공
 ![](../header.png)
+
+<br>
+<br>
+
+
 
 ## 설치 방법
 
-OS X & 리눅스:
-
+YOLOv5:
+- YOLOv5 설치
 ```sh
-npm install my-crazy-module --save
+!git clone https://github.com/ultralytics/yolov5.git
+```
+<br>
+
+YOLOv5의 requirements.txt:
+- python 프로젝트의 의존성 정보가 담긴 문서이다. 의존성 정보를 requirements.txt에 작성하는 이유는 협업이나 오픈 소스 등 다른 사람이(혹은 자신이 다른 환경에서) 해당 프로젝트를 실행할 일이 있을 때 편의를 위해
+```sh
+!pip install -r requirements.txt
 ```
 
-윈도우:
 
-```sh
-edit autoexec.bat
+
+<br>
+
+
+
+ngrok:
+- ngrok 은 NAT와 방화벽 뒤에 있는 로컬 서버 를 안전한 터널을 통해 공개 인터넷에 노출시켜 주는 도구라고 설명
+
+
+<br>
+
+## 분류 데이터
+```python
+'Axe'
+'Chisel'
+'Gun'
+'HDD'
+'HandCuffs'
+'Knife'
+'Lighter'
+'Plier'
+'Saw'
+'Scissors'
+'Screwdriver'
+'SmartPhone'
+'Spanner'
+'SupplymentaryBattery'
+'USB'
 ```
+<br>
 
-## 사용 예제
 
-스크린 샷과 코드 예제를 통해 사용 방법을 자세히 설명합니다.
 
-_더 많은 예제와 사용법은 [Wiki][wiki]를 참고하세요._
 
-## 개발 환경 설정
+## 노션을 이용하여 일정관리 및 역할 배분
+![image](https://user-images.githubusercontent.com/98979901/156496909-0e5105f6-df6b-4976-b8fc-dd10a3b24a23.png)
 
-모든 개발 의존성 설치 방법과 자동 테스트 슈트 실행 방법을 운영체제 별로 작성합니다.
+<br>
+<br>
 
-```sh
-make install
-npm test
-```
 
-## 업데이트 내역
 
-* 0.2.1
-    * 수정: 문서 업데이트 (모듈 코드 동일)
-* 0.2.0
-    * 수정: `setDefaultXYZ()` 메서드 제거
-    * 추가: `init()` 메서드 추가
-* 0.1.1
-    * 버그 수정: `baz()` 메서드 호출 시 부팅되지 않는 현상 (@컨트리뷰터 감사합니다!)
-* 0.1.0
-    * 첫 출시
-    * 수정: `foo()` 메서드 네이밍을 `bar()`로 수정
-* 0.0.1
-    * 작업 진행 중
 
-## 정보
-
-이름 – [@트위터 주소](https://twitter.com/dbader_org) – 이메일주소@example.com
-
-XYZ 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할 수 있습니다.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
-## 기여 방법
-
-1. (<https://github.com/yourname/yourproject/fork>)을 포크합니다.
-2. (`git checkout -b feature/fooBar`) 명령어로 새 브랜치를 만드세요.
-3. (`git commit -am 'Add some fooBar'`) 명령어로 커밋하세요.
-4. (`git push origin feature/fooBar`) 명령어로 브랜치에 푸시하세요. 
-5. 풀리퀘스트를 보내주세요.
-
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
